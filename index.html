@@ -196,7 +196,21 @@
         color: #12325c;
         font-weight: 600;
         cursor: pointer;
-      }
+      } 
+      @media (max-width: 700px) {
+  .card {
+    flex-direction: column;  /* empile verticalement */
+    height: auto;            /* hauteur automatique */
+    width: 90%;
+  }
+  .texti {
+    width: 100%;
+    margin-left: 0;
+  }
+  .imging {
+    display: none;           /* cache l'image sur mobile */
+  }
+}
     </style>
   </head>
   <body>
@@ -279,7 +293,10 @@
   let mode = "registration";  
   const toggleForm = document.getElementById("toggle-form");
   const registrationForm = document.getElementById("registration");
-  const loginForm = document.getElementById("login");
+  const loginForm = document.getElementById("login"); 
+  const card = document.querySelector(".card"); 
+  const texti = document.querySelector(".texti"); 
+  const im = document.querySelector(".imging");
 
   toggleForm.addEventListener("click", () => {
     if (mode === "registration") {
@@ -293,12 +310,9 @@
       toggleForm.textContent = "login";
       mode = "registration";
     }
-  });
+  }); 
 
-
-
-
-
+  
 
   </script>
   </body> 
