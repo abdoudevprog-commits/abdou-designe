@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Background Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+        overflow-y: auto;
+        font-family: "Segoe UI", sans-serif;
+        position: relative;
+      }
+
+      .bg {
+        position: fixed;
+        inset: 0;
+        background-color: #12325c;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .light-top-right {
+        position: absolute;
+        width: 1200px;
+        height: 1200px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          #7fc3ff 0%,
+          #0d4a9970 40%,
+          transparent 70%
+        );
+        top: -550px;
+        right: -450px;
+        filter: blur(70px);
+      }
+
+      .light-bottom-left {
+        position: absolute;
+        width: 1200px;
+        height: 1200px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          #7fc3ff 0%,
+          #0a3d8070 40%,
+          transparent 70%
+        );
+        bottom: -550px;
+        left: -450px;
+        filter: blur(70px);
+      }
+
+      .light-center {
+        position: absolute;
+        width: 600px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #0c304d 0%, transparent 70%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: blur(80px);
+      }
+
+      /* ── Card ── */
+      .card {
+        position: relative;
+        z-index: 10;
+        width: 60%;
+        max-width: 900px;
+        padding: 10px;
+        border-radius: 50px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: row;
+        align-items: center; 
+        justify-content: space-between;
+        gap: 30px;
+        height: 500px;
+      }
+
+      /* ── Côté gauche : formulaire ── */
+      .texti {
+        /* prend la moitié de la card */
+        color: #12325c;
+        margin-left: 30px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 400px;
+        width: 50%;
+
+        
+      }
+
+      .texti h2 {
+        font-size: 1.8rem;
+        margin-bottom: 6px;
+        text-align: center;
+      }
+
+      .texti p {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      /* ── Formulaire ── */
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      } 
+      
+
+      .input-wrapper {
+        position: relative;
+        width: 90%;
+      }
+
+      .input-wrapper .icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .input-wrapper .icon img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .input-wrapper input {
+        width: 100%;
+        padding: 12px 12px 12px 42px; /* padding-left pour laisser place à l'icône */
+        border: 1px solid #ccc;
+        border-radius: 30px;
+        outline: none;
+        font-size: 1rem;
+      }
+
+      input[type="submit"] {
+        width: 90%;
+        padding: 12px;
+        background-color: #12325c;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 4px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #1a4a80;
+      }
+
+      /* ── Côté droit : image ── */
+      .imging {
+        flex: 1;
+        align-self: stretch; /* ← prend la hauteur du parent automatiquement */
+        min-height: 300px; /* ← hauteur minimum si le contenu est petit */
+        border-radius: 50px;
+        background: url("images/ChatGPT Image 15 févr. 2026, 12_57_55 1 (1).png")
+          no-repeat center center;
+        background-size: cover; /* ← cover pas fill */
+        max-width: 300px; 
+      } 
+      .imging p {
+        color: white;
+        font-size: 1.2rem;
+        
+        padding: 20px; 
+        position: absolute;
+        bottom: 30px; 
+        font-weight: 600;
+      } 
+      .texti p span {
+        color: #12325c;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background -->
+    <div class="bg">
+      <div class="light-top-right"></div>
+      <div class="light-bottom-left"></div>
+      <div class="light-center"></div>
+    </div>
+
+    <!-- Card -->
+    <div class="card">
+      <!-- Gauche : formulaire -->
+      <div class="texti">
+        <h2>Welcome!</h2>
+        <p>Let's get you started now</p>
+
+        <form action="">
+          <div class="input-wrapper">
+            <span class="icon"
+              ><img src="images/carte-didentite 1.svg" alt=""
+            /></span>
+            <input type="text" placeholder="First name" />
+          </div>
+
+          <div class="input-wrapper">
+            <span class="icon"
+              ><img src="images/carte-didentite 1.svg" alt=""
+            /></span>
+            <input type="text" placeholder="Last name" />
+          </div>
+
+          <div class="input-wrapper">
+            <span class="icon"
+              ><img src="images/retourner-le-telephone 1.svg" alt=""
+            /></span>
+            <input type="number" placeholder="Phone number" />
+          </div>
+
+          <div class="input-wrapper">
+            <span class="icon"><img src="images/oeil 1-1.svg" alt="" /></span>
+            <input type="password" placeholder="Password" />
+          </div>
+
+          <div class="input-wrapper">
+            <span class="icon"><img src="images/oeil 1-1.svg" alt="" /></span>
+            <input type="password" placeholder="Confirm password" />
+          </div>
+
+          <input type="submit" value="Sign up" />
+        </form> 
+        <p>Already have an account? <span>
+          login
+        </span></p>
+      </div>
+
+      <!-- Droite : image -->
+      <div class="imging">
+        <p>Create your <br> account and start  <br>
+          learning today</p>
+    </div>
+  </body>
+</html>
