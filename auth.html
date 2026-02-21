@@ -214,7 +214,7 @@
         <h2>Welcome!</h2>
         <p>Let's get you started now</p>
 
-        <form action="">
+        <form id="registration" action="">
           <div class="input-wrapper">
             <span class="icon"
               ><img src="images/carte-didentite 1.svg" alt=""
@@ -247,8 +247,21 @@
           </div>
 
           <input type="submit" value="Sign up" />
-        </form> 
-        <p>Already have an account? <span>
+        </form>  
+        <form style="display: none;" id="login" action="">
+          <div class="input-wrapper">
+            <span class="icon"
+              ><img src="images/retourner-le-telephone 1.svg" alt=""
+            /></span>
+            <input type="number" placeholder="Phone number" />
+          </div> 
+          <div class="input-wrapper">
+            <span class="icon"><img src="images/oeil 1-1.svg" alt="" /></span>
+            <input type="password" placeholder="Confirm password" />
+          </div> 
+           <input type="submit" value="Sign up" />
+        </form>
+        <p>Already have an account? <span id = "toggle-form">
           login
         </span></p>
       </div>
@@ -258,5 +271,31 @@
         <p>Create your <br> account and start  <br>
           learning today</p>
     </div>
-  </body>
+  </body> 
+  <script> 
+  let mode = "registration";  
+  const toggleForm = document.getElementById("toggle-form");
+  const registrationForm = document.getElementById("registration");
+  const loginForm = document.getElementById("login");
+
+  toggleForm.addEventListener("click", () => {
+    if (mode === "registration") {
+      registrationForm.style.display = "none";
+      loginForm.style.display = "flex";
+      toggleForm.textContent = "Sign up";
+      mode = "login";
+    } else {
+      registrationForm.style.display = "flex";
+      loginForm.style.display = "none";
+      toggleForm.textContent = "login";
+      mode = "registration";
+    }
+  });
+
+
+
+
+
+
+  </script>
 </html>
